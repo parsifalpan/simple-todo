@@ -6,6 +6,34 @@ Built with React.js + Django(3.0).
 
 Use Typescript.
 
+## Goal
+
+This little toy project is for beginners at JOJ to get familiar with our tech stack, and gain some basic knowledge about web development. 
+
+Your main goal is to write a version of your own Todo app with [React.js](https://reactjs.org/) and [FastAPI](https://fastapi.tiangolo.com/).
+
+### Frontend
+
+* React.js
+* [Ant Design](https://ant.design/index-cn)
+  * Optional. You can also choose Bootstrap.css/Material UI/Bulma/Semantic UI.
+  * Used in JOJ2.0
+* [Mobx](https://mobx.js.org/README.html) and [Mobx React](https://github.com/mobxjs/mobx-react)
+  * Optinal. A state management library. Not so handy for a small project.
+  * Not used in JOJ2.0
+* [React Router](https://reactrouter.com/)
+  * Optional. Allow you to route inside an SPA (Single Page Application).
+  * Not used in JOJ2.0
+* [Umi.js](https://umijs.org/zh-CN)
+  * A framework to build frontend quickly. If you are familiar with React.js, you can try this.
+  * Used in JOJ2.0
+
+For more detailed knowledge and learning path, please refer to our [docs](https://joint-online-judge.github.io/cattle/).
+
+### Backend
+
+* FastAPI
+
 ## Requirement
 
 * python >= 3.6
@@ -32,7 +60,7 @@ npm install
 npm start
 ```
 
-## 实现的功能
+## 已经实现的功能
 
 ### 增加一个待办事项
 
