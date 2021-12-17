@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {Layout, Radio, Row} from 'antd';
-import {RadioChangeEvent} from "antd/es/radio";
-import {observer} from "mobx-react";
+import React, { Component } from 'react';
+import { Layout, Radio, Row } from 'antd';
+import { RadioChangeEvent } from "antd/es/radio";
+import { observer } from "mobx-react";
 
 import TodoStore from '../store/TodoStore';
 import TodoList from "./TodoList";
@@ -11,7 +11,7 @@ import TodoCreate from "./TodoList/TodoCreate";
 import './App.css';
 
 
-const {Header, Content, Sider} = Layout;
+const { Header, Content, Sider } = Layout;
 
 @observer
 class TodoApp extends Component<any, { sortBy: string }> {
@@ -27,7 +27,7 @@ class TodoApp extends Component<any, { sortBy: string }> {
   }
 
   handleSortChange = (e: RadioChangeEvent) => {
-    this.setState({sortBy: e.target.value});
+    this.setState({ sortBy: e.target.value });
     if (e.target.value === 'expire') TodoStore.sortByExpireDate();
     else TodoStore.sortByPriority();
   };
@@ -36,7 +36,7 @@ class TodoApp extends Component<any, { sortBy: string }> {
     return (
       <Layout className="app-page">
         <Sider>
-          <TodoCategory/>
+          <TodoCategory />
         </Sider>
         <Layout>
           <Header className="app-header">
@@ -44,7 +44,7 @@ class TodoApp extends Component<any, { sortBy: string }> {
           </Header>
           <Content className="app-container">
             <div className="app-create-content">
-              <TodoCreate/>
+              <TodoCreate />
             </div>
             <div className="app-content">
               <Row>
@@ -56,7 +56,7 @@ class TodoApp extends Component<any, { sortBy: string }> {
                 </div>
               </Row>
               <Row>
-                <TodoList/>
+                <TodoList />
               </Row>
             </div>
           </Content>

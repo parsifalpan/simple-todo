@@ -1,10 +1,10 @@
-import React, {Component} from "react";
-import {observer} from "mobx-react";
-import {List, Tag} from 'antd';
+import React, { Component } from "react";
+import { observer } from "mobx-react";
+import { List, Tag } from 'antd';
 
 import TodoStore from "../../store/TodoStore";
-import {ITodoItem} from "../../constant/Interface";
-import {PriorityText, PriorityColors} from "../../constant/params";
+import { ITodoItem } from "../../constant/Interface";
+import { PriorityText, PriorityColors } from "../../constant/params";
 
 import TodoOptions from "./TodoOptions";
 import TodoDetailDrawer from "../TodoDetail/TodoDetailDrawer";
@@ -36,7 +36,7 @@ class TodoList extends Component<any, any> {
     const expire_date = new Date(Date.parse(item.expire_date));
     const timeString = expire_date.toLocaleDateString() + ' ' + expire_date.toLocaleTimeString();
     return (
-      <List.Item actions={[<TodoOptions todo={item}/>]}>
+      <List.Item actions={[<TodoOptions todo={item} />]}>
         <List.Item.Meta
           title={<div>{item.title + '  '}{this.renderPriority(item)}</div>}
           description={timeString}
@@ -55,7 +55,7 @@ class TodoList extends Component<any, any> {
           dataSource={todoList}
           renderItem={item => this.renderTodoListItem(item)}
         />
-        <TodoDetailDrawer/>
+        <TodoDetailDrawer />
       </div>
     )
   }

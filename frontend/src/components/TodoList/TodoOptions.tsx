@@ -1,8 +1,8 @@
-import React, {Component} from "react";
-import {Button, Dropdown, Menu} from "antd";
+import React, { Component } from "react";
+import { Button, Dropdown, Menu } from "antd";
 
-import {ITodoItem} from '../../constant/Interface';
-import {TodoStatus} from "../../constant/params";
+import { ITodoItem } from '../../constant/Interface';
+import { TodoStatus } from "../../constant/params";
 import TodoStore from "../../store/TodoStore";
 
 interface OptionProps {

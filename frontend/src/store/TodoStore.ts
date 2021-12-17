@@ -1,11 +1,11 @@
-import {action, computed, observable} from 'mobx';
-import {message} from 'antd';
+import { action, computed, observable } from 'mobx';
+import { message } from 'antd';
 
 import provider from '../utils/provider';
 
-import {ITodoItem} from '../constant/Interface';
-import {TodoPriority, TodoStatus} from '../constant/params';
-import {AxiosError, AxiosResponse} from "axios";
+import { ITodoItem } from '../constant/Interface';
+import { TodoPriority, TodoStatus } from '../constant/params';
+import { AxiosResponse } from "axios";
 
 const checkExpired = (todo: ITodoItem): boolean => {
   const now = new Date();
@@ -95,7 +95,7 @@ class TodoStore {
 
   @action markAsDone = (todo: ITodoItem) => {
     return provider.getInstance().patch(`/todos/${todo.id}/`,
-      {status: TodoStatus.DONE})
+      { status: TodoStatus.DONE })
       .then(() => {
         this.fetchTodoList();
         message.success('完成事项！');
@@ -107,7 +107,7 @@ class TodoStore {
 
   @action raisePriority = (todo: ITodoItem): void => {
     provider.getInstance().patch(`/todos/${todo.id}/`,
-      {priority: todo.priority - 1})
+      { priority: todo.priority - 1 })
       .then(() => {
         this.fetchTodoList();
       })
@@ -118,7 +118,7 @@ class TodoStore {
 
   @action reducePriority = (todo: ITodoItem): void => {
     provider.getInstance().patch(`/todos/${todo.id}/`,
-      {priority: todo.priority + 1})
+      { priority: todo.priority + 1 })
       .then(() => {
         this.fetchTodoList();
       })

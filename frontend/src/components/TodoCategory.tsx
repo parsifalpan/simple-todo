@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Icon, Menu} from "antd";
+import React from "react";
+import { Icon, Menu } from "antd";
 
 import TodoStore from '../store/TodoStore';
 
@@ -20,15 +20,15 @@ const TodoCategory: React.FC = () => {
       onClick={handleClick}
     >
       <Menu.Item key="undone">
-        <Icon type="clock-circle"/>
+        <Icon type="clock-circle" />
         <span>未完成</span>
       </Menu.Item>
       <Menu.Item key="done">
-        <Icon type="check-circle"/>
+        <Icon type="check-circle" />
         <span>已完成</span>
       </Menu.Item>
       <Menu.Item key="expired">
-        <Icon type="exclamation-circle"/>
+        <Icon type="exclamation-circle" />
         <span>已过期</span>
       </Menu.Item>
     </Menu>

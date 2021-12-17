@@ -1,6 +1,6 @@
-import React, {Component, FormEvent} from "react";
-import {Form, Input, Button} from 'antd';
-import {FormComponentProps} from 'antd/es/form';
+import React, { Component, FormEvent } from "react";
+import { Form, Input, Button } from 'antd';
+import { FormComponentProps } from 'antd/es/form';
 
 import TodoStore from '../../store/TodoStore';
 
@@ -29,16 +29,16 @@ class TodoCreate extends Component<TodoCreateProps, any> {
 
 
   render() {
-    const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
+    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
 
     const titleError = isFieldTouched('title') && getFieldError('title');
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>
         <Form.Item validateStatus={titleError ? 'error' : ''} help={titleError || ''}>
           {getFieldDecorator('title', {
-            rules: [{required: true, message: '请输入标题！'}],
+            rules: [{ required: true, message: '请输入标题！' }],
           })(
-            <Input placeholder="输入标题快速创建待办事项..." style={{width: 600}}/>,
+            <Input placeholder="输入标题快速创建待办事项..." style={{ width: 600 }} />,
           )}
         </Form.Item>
         <Form.Item>
@@ -51,6 +51,6 @@ class TodoCreate extends Component<TodoCreateProps, any> {
   }
 }
 
-const WrappedTodoCreate = Form.create({name: 'todo_create'})(TodoCreate);
+const WrappedTodoCreate = Form.create({ name: 'todo_create' })(TodoCreate);
 
 export default WrappedTodoCreate;

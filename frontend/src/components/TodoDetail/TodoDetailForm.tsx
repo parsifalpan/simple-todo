@@ -1,17 +1,17 @@
 import moment from 'moment';
-import {observer} from "mobx-react";
-import React, {Component, FormEvent} from "react";
-import {FormComponentProps} from "antd/es/form";
-import {Form, Button, Col, Row, Input, Select, DatePicker} from 'antd';
+import { observer } from "mobx-react";
+import React, { Component, FormEvent } from "react";
+import { FormComponentProps } from "antd/es/form";
+import { Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
 
 import TodoStore from '../../store/TodoStore';
-import {TodoPriority} from "../../constant/params";
-import {ITodoItem} from "../../constant/Interface";
+import { TodoPriority } from "../../constant/params";
+import { ITodoItem } from "../../constant/Interface";
 
 import './TodoDetail.css';
 
-const {Option} = Select;
-const {TextArea} = Input;
+const { Option } = Select;
+const { TextArea } = Input;
 
 interface TodoDetailProps extends FormComponentProps {
   title: string,
@@ -33,7 +33,7 @@ function disabledDate(current: any): boolean {
 @observer
 class TodoDetailForm extends Component<TodoDetailProps, any> {
   componentDidMount() {
-    const {form} = this.props;
+    const { form } = this.props;
     const todo = TodoStore.editingTodo;
     let expire_date;
     if (todo?.expire_date) {
@@ -63,7 +63,7 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
 
 
   render() {
-    const {getFieldDecorator, getFieldsError} = this.props.form;
+    const { getFieldDecorator, getFieldsError } = this.props.form;
 
     return (
       <div>
@@ -72,8 +72,8 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
             <Col span={24}>
               <Form.Item label="事项名称">
                 {getFieldDecorator('title', {
-                  rules: [{required: true, message: '请输入任务名称'}],
-                })(<Input/>)}
+                  rules: [{ required: true, message: '请输入任务名称' }],
+                })(<Input />)}
               </Form.Item>
             </Col>
           </Row>
@@ -81,7 +81,7 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
           <Row>
             <Col span={24}>
               <Form.Item label="事项内容">
-                {getFieldDecorator('content')(<TextArea rows={4} placeholder="描述你的事项..."/>)}
+                {getFieldDecorator('content')(<TextArea rows={4} placeholder="描述你的事项..." />)}
               </Form.Item>
             </Col>
           </Row>
@@ -90,7 +90,7 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
             <Col span={10}>
               <Form.Item label="优先级">
                 {getFieldDecorator('priority', {
-                  rules: [{required: true, message: '请选择优先级'}],
+                  rules: [{ required: true, message: '请选择优先级' }],
                 })(
                   <Select>
                     <Option value={TodoPriority.URGENT}>优先级1</Option>
@@ -104,7 +104,7 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
             <Col span={14}>
               <Form.Item label="到期时间">
                 {getFieldDecorator('expire_date', {
-                  rules: [{required: true, message: '请选择到期时间'}],
+                  rules: [{ required: true, message: '请选择到期时间' }],
                 })(
                   <DatePicker
                     showTime
@@ -117,7 +117,7 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
           </Row>
         </Form>
         <div className="todo-detail-modal-button">
-          <Button onClick={TodoStore.closeDetailModal} style={{marginRight: 8}}>
+          <Button onClick={TodoStore.closeDetailModal} style={{ marginRight: 8 }}>
             取消
           </Button>
           <Button onClick={this.handleSubmit} type="primary" disabled={hasErrors(getFieldsError())}>
@@ -130,5 +130,5 @@ class TodoDetailForm extends Component<TodoDetailProps, any> {
 }
 
 
-export default Form.create({name: 'todo_detail'})(TodoDetailForm);
+export default Form.create({ name: 'todo_detail' })(TodoDetailForm);
 
