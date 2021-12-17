@@ -1,10 +1,36 @@
-# Jiuzhang-Todo-Typescript
+# Simple Todo
 
-Jiuzhang-Todo project.
+A simple Todo project.
 
-Built with react.js + Django(3.0).
+Built with React.js + Django(3.0).
 
-Use typescript.
+Use Typescript.
+
+## Requirement
+
+* python >= 3.6
+* node.js >= 12.0
+
+## Development
+
+### Start the backend
+
+```bash
+python3 -m venv ./venv  # create virtual environment
+source ./venv/bin/activate  # activate virtual environment
+
+cd server
+pip3 install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+### Start the frontend
+```bash
+cd frontend
+npm install
+npm start
+```
 
 ## 实现的功能
 
@@ -12,43 +38,30 @@ Use typescript.
 
 在顶部输入待办事项后按下回车或点击按钮，快速创建事项。
 
-![](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/create.gif)
-
 ### 删除一个待办事项
 
 所有事项（未完成，已完成，过期）均可删除（未完成任务在菜单中删除）
-
-![](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/delete.gif)
 
 ### 标记一个待办事项为已完成
 
 标记为已完成后会归入已完成
 
-![](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/done.gif)
-
 ### 编辑一个待办事项的具体内容
 
 设置标题、内容、优先级、到期时间。
-
-![](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/edit.gif)
 
 ### 列出所有待办事项
 
 查看不同状态的待办事项：未完成、已完成、过期。
 
-![](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/list.gif)
-
 ### *待办事项设置优先级
 
 内置4级优先级，不同优先级有不同颜色代表。菜单中可快捷提高/降低优先级。
-
-![avatar](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/setpriority.gif)
 
 ### *待办事项按照优先级、日期排序
 
 待办事项可以根据优先级、日期排序。
 
-![avatar](https://github.com/nichujie/jiuzhang_todo/blob/typescript/screenshot/sort.gif)
 
 ### *其他
 
