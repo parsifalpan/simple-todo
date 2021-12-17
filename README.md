@@ -12,6 +12,8 @@ This little toy project is for beginners at JOJ to get familiar with our tech st
 
 Your main goal is to write a version of your own Todo app with [React.js](https://reactjs.org/) and [FastAPI](https://fastapi.tiangolo.com/).
 
+These are some suggested libraries. You can find basic feature list of a Todo app at the end of this doc. You are also encouraged to add your own fearures (Juan).
+
 ### Frontend
 
 * React.js
@@ -34,12 +36,18 @@ For more detailed knowledge and learning path, please refer to our [docs](https:
 
 * FastAPI
 
+
+For more detailed knowledge and learning path, please refer to our [docs](https://joint-online-judge.github.io/horse/).
+
+
 ## Requirement
 
 * python >= 3.6
 * node.js >= 12.0
 
 ## Development
+
+You can try to launch and play with this project to get a rough idea of a Todo app, and how frontend communicate with the backend.
 
 ### Start the backend
 
