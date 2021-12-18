@@ -44,7 +44,8 @@ For more detailed knowledge and learning path, please refer to our [docs](https:
   * SQLModel is based on [Pydantic](https://pydantic-docs.helpmanual.io/) and [SQLAlchemy](https://www.sqlalchemy.org/).
   * Pydantic: Data validation and settings management using python type annotations.
   * SQLAlchemy: Python Object Relational Mapper (ORM).
-  * Used in JOJ2.0
+  * In the todo app, we use SQLite for simplicity (no need to install extra service).
+  * Used in JOJ2.0 (PostgreSQL instead of SQLite)
 * [Docker](https://docs.docker.com/get-started/overview/)
   * Optional. Used for deployment.
 
@@ -53,7 +54,7 @@ For more detailed knowledge and learning path, please refer to our [docs](https:
 
 ## Requirement
 
-* python >= 3.7 (poetry >= 1.1)
+* python >= 3.7 (poetry >= 1.0)
 * node.js >= 12.0
 
 ### Python Installation
@@ -106,14 +107,28 @@ You can download the installers on https://nodejs.org/en/download/. You can also
 You can try to launch and play with this project to get a rough idea of a Todo app, and how frontend communicate with the backend.
 
 
-### Start the backend
+### Start the backend (FastAPI)
 
 ```bash
 cd server
-poetry install
-poetry shell    # activate virtual environment
-python -m todo  # run __main__.py in the module `todo`
+poetry install               # a virtual environment will be created automatically
+poetry shell                 # activate virtual environment
+python -m todo serve --debug # run __main__.py in the module "todo" in debug mode (enable auto reloading)
 ```
+
+### Start the backend (django, historical version)
+
+```bash
+python3 -m venv ./venv       # create virtual environment
+source ./venv/bin/activate   # activate virtual environment
+
+cd django_server
+pip3 install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+
 
 ### Start the frontend
 ```bash
