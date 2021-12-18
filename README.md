@@ -2,7 +2,7 @@
 
 A simple Todo project.
 
-Built with React.js + Django(3.0).
+Built with React.js + FastAPI.
 
 Use Typescript.
 
@@ -21,7 +21,7 @@ These are some suggested libraries. You can find basic feature list of a Todo ap
   * Optional. You can also choose Bootstrap.css/Material UI/Bulma/Semantic UI.
   * Used in JOJ2.0
 * [Mobx](https://mobx.js.org/README.html) and [Mobx React](https://github.com/mobxjs/mobx-react)
-  * Optinal. A state management library. Not so handy for a small project.
+  * Optional. A state management library. Not so handy for a small project.
   * Not used in JOJ2.0
 * [React Router](https://reactrouter.com/)
   * Optional. Allow you to route inside an SPA (Single Page Application).
@@ -34,31 +34,85 @@ For more detailed knowledge and learning path, please refer to our [docs](https:
 
 ### Backend
 
-* FastAPI
-
+* [Poetry](https://python-poetry.org/)
+  * A python package and dependency manager (better and easier then `pip`) .
+  * Used in JOJ2.0
+* [FastAPI](https://fastapi.tiangolo.com/)
+  * High performance, easy to learn, fast to code, ready for production.
+  * Used in JOJ2.0
+* [SQLModel](https://sqlmodel.tiangolo.com/)
+  * SQLModel is based on [Pydantic](https://pydantic-docs.helpmanual.io/) and [SQLAlchemy](https://www.sqlalchemy.org/).
+  * Pydantic: Data validation and settings management using python type annotations.
+  * SQLAlchemy: Python Object Relational Mapper (ORM).
+  * Used in JOJ2.0
+* [Docker](https://docs.docker.com/get-started/overview/)
+  * Optional. Used for deployment.
 
 For more detailed knowledge and learning path, please refer to our [docs](https://joint-online-judge.github.io/horse/).
 
 
 ## Requirement
 
-* python >= 3.6
+* python >= 3.7 (poetry >= 1.1)
 * node.js >= 12.0
+
+### Python Installation
+
+https://realpython.com/installing-python/#how-to-install-on-ubuntu-and-linux-mint
+
+### Poetry Installation
+
+#### Linux / macOS
+
+```powershell
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+```
+
+#### Windows Powershell
+
+```powershell
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+```
+
+### node.js Installation
+
+#### Linux / macOS
+
+You can use package managers to install node.js, but we recommend to use [nvm](https://nodejs.org/en/download/) for easier version management.
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+Add the following lines to `.bashrc`, `.zshrc` according to the shell you use:
+```bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+Then use `source` to reload your shell, or restart your shell, and enter
+```bash
+nvm install lts
+```
+
+#### Windows
+
+You can download the installers on https://nodejs.org/en/download/. You can also try package managers such as [chocolatey](https://chocolatey.org/). `nvm` is not supported on Windows.
+
+
 
 ## Development
 
 You can try to launch and play with this project to get a rough idea of a Todo app, and how frontend communicate with the backend.
 
+
 ### Start the backend
 
 ```bash
-python3 -m venv ./venv  # create virtual environment
-source ./venv/bin/activate  # activate virtual environment
-
 cd server
-pip3 install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+poetry install
+poetry shell    # activate virtual environment
+python -m todo  # run __main__.py in the module `todo`
 ```
 
 ### Start the frontend
