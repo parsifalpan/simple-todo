@@ -1,106 +1,18 @@
 # Simple Todo
 
-A simple Todo project.
+A more advanced version of Simple Todo.
 
-Built with React.js + FastAPI.
+Built with React.js + Django.
 
 Use Typescript.
 
-## Goal
-
-This little toy project is for beginners at JOJ to get familiar with our tech stack, and gain some basic knowledge about web development. 
-
-Your main goal is to write a version of your own Todo app with [React.js](https://reactjs.org/) and [FastAPI](https://fastapi.tiangolo.com/).
-
-These are some suggested libraries. You can find basic feature list of a Todo app at the end of this doc. You are also encouraged to add your own fearures (Juan).
-
-### Frontend
-
-* React.js
-* [React Router](https://reactrouter.com/)
-  * Required. Allow you to route inside an SPA (Single Page Application).
-  * Used in JOJ2.0.
-  * But not in this toy example. You shall try to split the app into pages and use react-router.
-* [Ant Design](https://ant.design/index-cn)
-  * Optional. You can also choose Bootstrap.css/Material UI/Bulma/Semantic UI.
-  * Used in JOJ2.0
-* [Mobx](https://mobx.js.org/README.html) and [Mobx React](https://github.com/mobxjs/mobx-react)
-  * Optional. A state management library. Not so handy for a small project.
-  * Not used in JOJ2.0
-* [Umi.js](https://umijs.org/zh-CN)
-  * A framework to build frontend quickly. If you are familiar with React.js, you can try this.
-  * Used in JOJ2.0
-
-For more detailed knowledge and learning path, please refer to our [docs](https://joint-online-judge.github.io/cattle/).
-
-### Backend
-
-* [Poetry](https://python-poetry.org/)
-  * A python package and dependency manager (better and easier then `pip`) .
-  * Used in JOJ2.0
-* [FastAPI](https://fastapi.tiangolo.com/)
-  * High performance, easy to learn, fast to code, ready for production.
-  * Used in JOJ2.0
-* [SQLModel](https://sqlmodel.tiangolo.com/)
-  * SQLModel is based on [Pydantic](https://pydantic-docs.helpmanual.io/) and [SQLAlchemy](https://www.sqlalchemy.org/).
-  * Pydantic: Data validation and settings management using python type annotations.
-  * SQLAlchemy: Python Object Relational Mapper (ORM).
-  * In the todo app, we use SQLite for simplicity (no need to install extra service).
-  * Used in JOJ2.0 (PostgreSQL instead of SQLite)
-* [Docker](https://docs.docker.com/get-started/overview/)
-  * Optional. Used for deployment.
-
-For more detailed knowledge and learning path, please refer to our [docs](https://joint-online-judge.github.io/horse/).
-
+If you are ambitious, you can learn simple auth system and Google OAuth from this project.
 
 ## Requirement
 
 * python >= 3.7 (poetry >= 1.0)
 * node.js >= 12.0
-
-### Python Installation
-
-https://realpython.com/installing-python/#how-to-install-on-ubuntu-and-linux-mint
-
-### Poetry Installation
-
-#### Linux / macOS
-
-```powershell
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-```
-
-#### Windows Powershell
-
-```powershell
-(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
-```
-
-### node.js Installation
-
-#### Linux / macOS
-
-You can use package managers to install node.js, but we recommend to use [nvm](https://nodejs.org/en/download/) for easier version management.
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
-
-Add the following lines to `.bashrc`, `.zshrc` according to the shell you use:
-```bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-```
-
-Then use `source` to reload your shell, or restart your shell, and enter
-```bash
-nvm install lts
-```
-
-#### Windows
-
-You can download the installers on https://nodejs.org/en/download/. You can also try package managers such as [chocolatey](https://chocolatey.org/). `nvm` is not supported on Windows.
-
+* yarn
 
 
 ## Development
@@ -108,72 +20,30 @@ You can download the installers on https://nodejs.org/en/download/. You can also
 You can try to launch and play with this project to get a rough idea of a Todo app, and how frontend communicate with the backend.
 
 
-### Start the backend (FastAPI)
-
-```bash
-cd server
-poetry install               # a virtual environment will be created automatically
-poetry shell                 # activate virtual environment
-python -m todo serve --debug # run __main__.py in the module "todo" in debug mode (enable auto reloading)
-```
-
-### Start the backend (django, historical version)
+### Start the backend (django)
 
 ```bash
 python3 -m venv ./venv       # create virtual environment
 source ./venv/bin/activate   # activate virtual environment
 
-cd django_server
+cd server
 pip3 install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
 
 
-
 ### Start the frontend
 ```bash
 cd frontend
-npm install
-npm start
+yarn install
+yarn start
 ```
 
-## 已经实现的功能
+## Start Playing
 
-### 增加一个待办事项
+Access http://localhost:3000 in your browser.
 
-在顶部输入待办事项后按下回车或点击按钮，快速创建事项。
+It's normal to see errors about Google OAuth, and you cannot sign in with Google because the client ID is not valid.
 
-### 删除一个待办事项
-
-所有事项（未完成，已完成，过期）均可删除（未完成任务在菜单中删除）
-
-### 标记一个待办事项为已完成
-
-标记为已完成后会归入已完成
-
-### 编辑一个待办事项的具体内容
-
-设置标题、内容、优先级、到期时间。
-
-### 列出所有待办事项
-
-查看不同状态的待办事项：未完成、已完成、过期。
-
-### *待办事项设置优先级
-
-内置4级优先级，不同优先级有不同颜色代表。菜单中可快捷提高/降低优先级。
-
-### *待办事项按照优先级、日期排序
-
-待办事项可以根据优先级、日期排序。
-
-
-### *其他
-
-* 待办事项可以设置优先级
-* 待办事项可以设置 expire date (前后端均有校验)
-* 支持按照不同的方式排序，如优先级，expire date
-* API 带有测试用例
-* 前端使用 TypeScript
-
+You can start by register at http://localhost:3000/register and then experience this little app.

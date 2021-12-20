@@ -18,8 +18,8 @@ export const PriorityColors = [
 ];
 
 export const PriorityText = [
-  '优先级1',
-  '优先级2',
-  '优先级3',
-  '优先级4'
+  'P0',
+  'P1',
+  'P2',
+  'P3'
 ];

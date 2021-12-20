@@ -1,0 +1,14 @@
+.login-container {
+    margin: 10px 16px;
+    padding-top: 11%;
+}
+
+.login-form-button {
+    width: 100%;
+}
+
+.google-button {
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+}

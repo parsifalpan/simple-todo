@@ -7,3 +7,11 @@ export interface ITodoItem {
   readonly created_at?: string,
   expire_date: string
 }
+
+export interface IUser {
+  readonly id: string;
+  readonly username: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+}

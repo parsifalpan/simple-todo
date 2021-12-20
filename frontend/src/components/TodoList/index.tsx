@@ -1,64 +1,50 @@
-import React, { Component } from "react";
-import { observer } from "mobx-react";
-import { List, Tag } from 'antd';
+import React, {useContext} from "react";
+import { observer } from "mobx-react-lite";
+import {List, Tag} from 'antd';
+import mm from 'moment';
 
-import TodoStore from "../../store/TodoStore";
-import { ITodoItem } from "../../constant/Interface";
-import { PriorityText, PriorityColors } from "../../constant/params";
+import { TodoContext } from '../../utils/context';
+import {ITodoItem} from "../../constant/Interface";
+import {PriorityText, PriorityColors} from "../../constant/params";
 
 import TodoOptions from "./TodoOptions";
 import TodoDetailDrawer from "../TodoDetail/TodoDetailDrawer";
 
 
-@observer
-class TodoList extends Component<any, any> {
+const TodoList: React.FC = observer(() => {
+  const todo = useContext(TodoContext);
 
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      detailVisible: false
-    }
-  }
-
-  showDetailDrawer = () => {
-    this.setState({
-      detailVisible: true,
-    });
-  };
-
-  renderPriority = (todo: ITodoItem) => {
+  const renderPriority = (todo: ITodoItem) => {
     return <Tag color={PriorityColors[todo.priority]}>
       {PriorityText[todo.priority]}
     </Tag>
   };
 
-  renderTodoListItem = (item: ITodoItem) => {
+  const renderTodoListItem = (item: ITodoItem) => {
     const expire_date = new Date(Date.parse(item.expire_date));
-    const timeString = expire_date.toLocaleDateString() + ' ' + expire_date.toLocaleTimeString();
+    const timeString = mm(expire_date).format('YYYY-MM-DD HH:mm:ss');
     return (
-      <List.Item actions={[<TodoOptions todo={item} />]}>
+      <List.Item actions={[<TodoOptions todo={item}/>]}>
         <List.Item.Meta
-          title={<div>{item.title + '  '}{this.renderPriority(item)}</div>}
+          title={<div>{item.title + '  '}{renderPriority(item)}</div>}
           description={timeString}
         />
       </List.Item>
     )
   };
 
-  render() {
-    const todoList = TodoStore.showTodoList;
+  const todoList = todo.showTodoList;
 
-    return (
-      <div>
-        <List
-          itemLayout="horizontal"
-          dataSource={todoList}
-          renderItem={item => this.renderTodoListItem(item)}
-        />
-        <TodoDetailDrawer />
-      </div>
-    )
-  }
-}
+  return (
+    <div>
+      <List
+        itemLayout="horizontal"
+        dataSource={todoList}
+        renderItem={item => renderTodoListItem(item)}
+      />
+      <TodoDetailDrawer/>
+    </div>
+  )
+});
 
 export default TodoList;

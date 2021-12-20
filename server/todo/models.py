@@ -1,22 +1,18 @@
-from typing import Optional
-from sqlmodel import Field
-from datetime import datetime
-from sqlalchemy.sql.functions import now
-from sqlmodel import SQLModel
-
-from todo.schemas import TodoBase
+from django.db import models
+from django.contrib.auth.models import User
+from .constants import TODO_STATUS_CHOICES, TODO_PRIORITY_CHOICES, TodoStatus, TodoPriority
 
 
-class IDMixin(SQLModel):
-    """
-    id is in a separate mixin because we want id to be the first column.
-    According to Python MRO, the class in the right will be inherited first
-    """
+# Create your models here.
 
-    id: Optional[int] = Field(default=None, primary_key=True)
+class Todo(models.Model):
+    def __str__(self):
+        return self.title
 
-
-class Todo(TodoBase, IDMixin, table=True):
-    created_at: Optional[datetime] = Field(
-        None, index=False, sa_column_kwargs={"server_default": now()}
-    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=64, default='')
+    content = models.CharField(max_length=256, default='', blank=True)
+    status = models.IntegerField(default=TodoStatus.UNDONE, choices=TODO_STATUS_CHOICES)
+    priority = models.IntegerField(default=TodoPriority.CASUAL, choices=TODO_PRIORITY_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expire_date = models.DateTimeField(blank=False)

@@ -1,63 +1,65 @@
-import React, { Component } from "react";
-import { Button, Dropdown, Menu } from "antd";
+import React, {useContext} from "react";
+import {Button, Dropdown, Menu} from "antd";
+import { observer } from "mobx-react-lite";
 
-import { ITodoItem } from '../../constant/Interface';
-import { TodoStatus } from "../../constant/params";
-import TodoStore from "../../store/TodoStore";
+import {ITodoItem} from '../../constant/Interface';
+import {TodoStatus} from "../../constant/params";
+import { TodoContext } from '../../utils/context';
 
 interface OptionProps {
   todo: ITodoItem
 }
 
 
-class TodoOptions extends Component<OptionProps, any> {
-  renderMenu = (todo: ITodoItem) => {
+const TodoOptions: React.FC<OptionProps> = observer(props => {
+  const todoStore = useContext(TodoContext);
+
+  const renderMenu = (todo: ITodoItem) => {
     return (
       <Menu>
         <Menu.Item key="edit" onClick={() => {
-          TodoStore.showDetailModal(todo);
+          todoStore.showDetailModal(todo);
         }}>
-          编辑
+          Edit
         </Menu.Item>
         <Menu.Item key="raisePriority" onClick={() => {
-          TodoStore.raisePriority(todo);
+          todoStore.raisePriority(todo);
         }}>
-          提升优先级
+          Raise Priority
         </Menu.Item>
         <Menu.Item key="reducePriority" onClick={() => {
-          TodoStore.reducePriority(todo);
+          todoStore.reducePriority(todo);
         }}>
-          降低优先级
+          Reduce Priority
         </Menu.Item>
         <Menu.Item key="delete" onClick={() => {
-          TodoStore.deleteTodoItem(todo);
+          todoStore.deleteTodoItem(todo);
         }}>
-          删除
+          Delete
         </Menu.Item>
       </Menu>
     );
   };
 
-  render() {
-    if (this.props.todo.status === TodoStatus.UNDONE) return (
-      <Dropdown.Button
-        type="primary"
-        overlay={this.renderMenu(this.props.todo)}
-        onClick={() => {
-          TodoStore.markAsDone(this.props.todo);
-        }}
-      >
-        完成!
-      </Dropdown.Button>
-    );
-    return (
-      <Button type="danger" onClick={() => {
-        TodoStore.deleteTodoItem(this.props.todo)
-      }}>
-        删除
-      </Button>
-    )
-  }
-}
+  if (props.todo.status === TodoStatus.UNDONE) return (
+    <Dropdown.Button
+      type="primary"
+      overlay={renderMenu(props.todo)}
+      onClick={() => {
+        todoStore.markAsDone(props.todo);
+      }}
+    >
+      Done!
+    </Dropdown.Button>
+  );
+
+  return (
+    <Button type="danger" onClick={() => {
+      todoStore.deleteTodoItem(props.todo)
+    }}>
+      Delete
+    </Button>
+  )
+});
 
 export default TodoOptions;

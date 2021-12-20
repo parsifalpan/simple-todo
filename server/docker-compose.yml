@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - type: bind
+        source: .
+        target: /SimpleTodo/
+    working_dir: /SimpleTodo/
+    command: ./command.sh

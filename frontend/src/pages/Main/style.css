@@ -1,0 +1,30 @@
+.app-page {
+    min-height: 100vh !important;
+}
+
+.app-header {
+    background: #fff !important;
+    padding-left: 30px;
+    font-size: 1.2rem;
+}
+
+.app-container {
+    margin: 10px 16px;
+}
+
+.app-create-content {
+    margin: 20px 0;
+    padding: 16px 30px;
+    background: #fff;
+}
+
+.app-content {
+    margin: 20px 0;
+    padding: 20px 30px;
+    background: #fff;
+    min-height: 90%;
+}
+
+.sort-button-group {
+    float: right;
+}
