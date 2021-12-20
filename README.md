@@ -17,14 +17,15 @@ These are some suggested libraries. You can find basic feature list of a Todo ap
 ### Frontend
 
 * React.js
+* [React Router](https://reactrouter.com/)
+  * Required. Allow you to route inside an SPA (Single Page Application).
+  * Used in JOJ2.0.
+  * But not in this toy example. You shall try to split the app into pages and use react-router.
 * [Ant Design](https://ant.design/index-cn)
   * Optional. You can also choose Bootstrap.css/Material UI/Bulma/Semantic UI.
   * Used in JOJ2.0
 * [Mobx](https://mobx.js.org/README.html) and [Mobx React](https://github.com/mobxjs/mobx-react)
   * Optional. A state management library. Not so handy for a small project.
-  * Not used in JOJ2.0
-* [React Router](https://reactrouter.com/)
-  * Optional. Allow you to route inside an SPA (Single Page Application).
   * Not used in JOJ2.0
 * [Umi.js](https://umijs.org/zh-CN)
   * A framework to build frontend quickly. If you are familiar with React.js, you can try this.
