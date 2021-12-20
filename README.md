@@ -70,6 +70,14 @@ https://realpython.com/installing-python/#how-to-install-on-ubuntu-and-linux-min
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
+If the terminal cannot find `poetry`, please close the terminal window and try again, or source your terminal profile.
+
+You may also check your environment variable, and add the following statement in your terminal profile:
+
+```bash
+export PATH="$HOME/.poetry/bin:$PATH"
+```
+
 #### Windows Powershell
 
 ```powershell
