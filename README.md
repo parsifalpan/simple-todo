@@ -49,6 +49,9 @@ For more detailed knowledge and learning path, please refer to our [docs](https:
   * Used in JOJ2.0 (PostgreSQL instead of SQLite)
 * [Docker](https://docs.docker.com/get-started/overview/)
   * Optional. Used for deployment.
+* [pytest](https://docs.pytest.org/)
+  * Write and run unit test on your code. You think you write the right code? Then test it.
+  * Used in JOJ2.0
 
 For more detailed knowledge and learning path, please refer to our [docs](https://joint-online-judge.github.io/horse/).
 
@@ -66,7 +69,7 @@ https://realpython.com/installing-python/#how-to-install-on-ubuntu-and-linux-min
 
 #### Linux / macOS
 
-```powershell
+```bash
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
@@ -86,9 +89,9 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 ### Node.js Installation
 
-#### Linux / macOS
+You can use package managers to install node.js, but we recommend to use nvm for easier version management.
 
-You can use package managers to install node.js, but we recommend to use [nvm](https://nodejs.org/en/download/) for easier version management.
+#### Linux / macOS
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -100,15 +103,15 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-Then use `source` to reload your shell, or restart your shell, and enter
+#### Windows
+
+Download nvm-windows [https://github.com/coreybutler/nvm-windows] from release page and install.
+
+
+After installation of nvm, use `source` to reload your shell, or restart your shell, and enter
 ```bash
 nvm install lts
 ```
-
-#### Windows
-
-You can download the installers on https://nodejs.org/en/download/. You can also try package managers such as [chocolatey](https://chocolatey.org/). `nvm` is not supported on Windows.
-
 
 
 ## Development
