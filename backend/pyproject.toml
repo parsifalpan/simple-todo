@@ -1,0 +1,22 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.poetry]
+authors = ["tc-imba <liuyh970615@gmail.com>"]
+description = ""
+license = "MIT"
+name = "todo"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+aiosqlite = "^0.17.0"
+fastapi = "^0.70.1"
+pydantic-universal-settings = "^0.1.5"
+python = "^3.7"
+SQLAlchemy-Utils = "^0.37.9"
+sqlmodel = "^0.0.5"
+starlette-context = "^0.3.3"
+uvicorn = {extras = ["standard"], version = "^0.16.0"}
+
+[tool.poetry.dev-dependencies]

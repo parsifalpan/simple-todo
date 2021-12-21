@@ -8,7 +8,7 @@ Use Typescript.
 
 ## Goal
 
-This little toy project is for beginners at JOJ to get familiar with our tech stack, and gain some basic knowledge about web development. 
+This little toy project is for beginners at JOJ to get familiar with our tech stack, and gain some basic knowledge about web development.
 
 Your main goal is to write a version of your own Todo app with [React.js](https://reactjs.org/) and [FastAPI](https://fastapi.tiangolo.com/).
 
@@ -84,7 +84,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
 ```
 
-### node.js Installation
+### Node.js Installation
 
 #### Linux / macOS
 
@@ -119,31 +119,17 @@ You can try to launch and play with this project to get a rough idea of a Todo a
 ### Start the backend (FastAPI)
 
 ```bash
-cd server
+cd backend
 poetry install               # a virtual environment will be created automatically
-poetry shell                 # activate virtual environment
-python -m todo serve --debug # run __main__.py in the module "todo" in debug mode (enable auto reloading)
+poetry run python -m todo serve --debug # run __main__.py in the module "todo" in debug mode (enable auto reloading), using the poetry environment
+# Or you can run `poetry shell && python -m todo serve --debug`, which may activate cmd in windows
 ```
-
-### Start the backend (django, historical version)
-
-```bash
-python3 -m venv ./venv       # create virtual environment
-source ./venv/bin/activate   # activate virtual environment
-
-cd django_server
-pip3 install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-```
-
-
 
 ### Start the frontend
 ```bash
 cd frontend
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ## 已经实现的功能
@@ -184,4 +170,3 @@ npm start
 * 支持按照不同的方式排序，如优先级，expire date
 * API 带有测试用例
 * 前端使用 TypeScript
-
