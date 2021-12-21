@@ -116,14 +116,22 @@ You can download the installers on https://nodejs.org/en/download/. You can also
 You can try to launch and play with this project to get a rough idea of a Todo app, and how frontend communicate with the backend.
 
 
-### Start the backend (FastAPI)
+### Start the backend
 
 ```bash
 cd backend
 poetry install               # a virtual environment will be created automatically
 poetry run python -m todo serve --debug # run __main__.py in the module "todo" in debug mode (enable auto reloading), using the poetry environment
-# Or you can run `poetry shell && python -m todo serve --debug`, which may activate cmd in windows
+# Or you can run `poetry shell && python -m todo serve --debug`, which may run cmd in windows
 ```
+
+### Test the backend
+
+```bash
+cd backend
+poetry run pytest
+```
+
 
 ### Start the frontend
 ```bash
